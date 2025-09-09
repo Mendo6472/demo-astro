@@ -142,14 +142,194 @@ const { title = "Demo Astro Landing", description = "A simple landing page built
 
 ```css
 /* src/styles/global.css */
-:root { --bg:#0b1020; --text:#e7ecff; --muted:#b5c0ff; --primary:#7c9bff; --border:#243055; }
-html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,Segoe UI,Roboto,Arial;}
-main{max-width:1100px;margin:0 auto;padding:32px 24px}
-header,footer{border-color:var(--border)}
-.button{display:inline-flex;gap:8px;padding:12px 18px;border-radius:10px;background:var(--primary);color:#0b1020;border:1px solid var(--border)}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:42px 0}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{border:1px solid var(--border);border-radius:12px;padding:16px;background:#0f1730}
+
+:root {
+	--bg: #0b1020;
+	--bg-soft: #0f1730;
+	--text: #e7ecff;
+	--muted: #b5c0ff;
+	--primary: #7c9bff;
+	--primary-strong: #5d7df5;
+	--accent: #6be3ff;
+	--border: #243055;
+}
+
+.dark {
+	--bg: #070a14;
+	--bg-soft: #0b1226;
+	--text: #e7ecff;
+	--muted: #a7b2e6;
+	--primary: #9bb2ff;
+	--primary-strong: #7e97ff;
+	--accent: #6be3ff;
+	--border: #1b2747;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+	line-height: 1.6;
+}
+
+a {
+	color: var(--primary);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+header {
+	border-bottom: 1px solid var(--border);
+	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 16px 24px;
+}
+
+.brand {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	font-weight: 700;
+	letter-spacing: 0.3px;
+}
+
+.nav-links {
+	display: flex;
+	gap: 16px;
+}
+
+main {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 32px 24px;
+}
+
+footer {
+	border-top: 1px solid var(--border);
+	padding: 24px;
+	text-align: center;
+	color: var(--muted);
+}
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 18px;
+	border-radius: 10px;
+	background: var(--primary);
+	color: #0b1020;
+	font-weight: 700;
+	border: 1px solid var(--border);
+}
+
+.button.alt {
+	background: transparent;
+	color: var(--text);
+	border-color: var(--border);
+}
+
+.hero {
+	display: grid;
+	grid-template-columns: 1.1fr 0.9fr;
+	gap: 28px;
+	align-items: center;
+	padding: 42px 0;
+}
+
+.hero h1 {
+	font-size: 44px;
+	line-height: 1.1;
+	margin: 0 0 12px;
+}
+
+.hero p {
+	margin: 0 0 20px;
+	color: var(--muted);
+}
+
+.hero-card {
+	border: 1px solid var(--border);
+	border-radius: 14px;
+	background: linear-gradient(180deg, var(--bg-soft), var(--bg));
+	padding: 18px;
+}
+
+.pill {
+	display: inline-block;
+	padding: 6px 10px;
+	border: 1px solid var(--border);
+	border-radius: 999px;
+	color: var(--muted);
+	font-size: 12px;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 18px;
+}
+
+.card {
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	padding: 16px;
+	background: var(--bg-soft);
+}
+
+.muted {
+	color: var(--muted);
+}
+
+.section {
+	margin: 56px 0;
+}
+
+.center {
+	text-align: center;
+}
+
+.stack {
+	display: grid;
+	gap: 12px;
+}
+
+.row {
+	display: flex;
+	gap: 12px;
+}
+
+.spacer {
+	height: 16px;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
 ```
 
 ### 5.3 Islas React: interactividad donde hace falta
