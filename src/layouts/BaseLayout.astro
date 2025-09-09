@@ -1,0 +1,59 @@
+---
+import ThemeToggle from "../components/ThemeToggle";
+import "../styles/global.css";
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title = "Demo Astro Landing", description = "A simple landing page built with Astro and islands architecture." } = Astro.props as Props;
+---
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<script is:inline>
+			// Prevent theme flash on first paint
+			(function () {
+				try {
+					var stored = localStorage.getItem("theme");
+					var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+					var useDark = stored ? stored === 'dark' : prefersDark;
+					if (useDark) document.documentElement.classList.add('dark');
+					document.documentElement.classList.remove('no-js');
+				} catch (_) {}
+			})();
+		</script>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a class="brand" href="/" data-astro-prefetch>
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7l3-7z" fill="currentColor" />
+					</svg>
+					<span>Astro Demo</span>
+				</a>
+				<div class="nav-links">
+					<a href="/#features">Características</a>
+					<a href="/about" data-astro-prefetch>Acerca de</a>
+					<ThemeToggle client:idle />
+				</div>
+			</nav>
+		</header>
+		<main>
+			<slot />
+		</main>
+		<footer>
+			<p>Hecho con Astro · <a href="https://docs.astro.build/en/getting-started/" rel="noreferrer noopener">Docs</a></p>
+		</footer>
+	</body>
+</html>
+
+

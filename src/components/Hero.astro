@@ -1,0 +1,34 @@
+---
+import Counter from "./Counter";
+---
+<section class="hero">
+	<div class="stack">
+		<span class="pill">Islas + SSR + React</span>
+		<h1>Construye más rápido con Astro</h1>
+		<p>
+			Astro combina contenido estático veloz con <strong>islas interactivas</strong> cuando las necesitas.
+			Ideal para landings, blogs y sitios de marketing.
+		</p>
+		<div class="row">
+			<a class="button" href="https://docs.astro.build/en/getting-started/" rel="noreferrer noopener">Empezar</a>
+			<a class="button alt" href="#features">Ver características</a>
+		</div>
+		<div class="spacer"></div>
+		<div class="stack">
+			<span class="muted">Demo de una isla interactiva (React):</span>
+			<Counter client:load />
+		</div>
+	</div>
+	<div class="hero-card">
+		<div class="stack">
+			<h3>Render híbrido</h3>
+			<p class="muted">Contenido estático por defecto, componentes interactivos donde importa.</p>
+			<h3>Sin JS por defecto</h3>
+			<p class="muted">Astro envía <em>cero</em> JS del cliente a menos que lo pidas.</p>
+			<h3>Integraciones</h3>
+			<p class="muted">React, Svelte, Vue y más, listos para usar.</p>
+		</div>
+	</div>
+</section>
+
+
