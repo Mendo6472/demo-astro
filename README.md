@@ -1,5 +1,9 @@
 # Demo Landing con Astro (Islas + React)
 
+- Julián Mendoza
+- Sebastián Díaz
+- Sara Díaz
+
 Guía paso a paso para crear una landing page sencilla con **Astro**, usando **arquitectura de islas** con React para interactividad.
 
 Referencias: [Documentación oficial de Astro](https://docs.astro.build/en/getting-started/)
